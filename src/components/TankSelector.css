@@ -1,0 +1,101 @@
+/* ============================================
+   TANK SELECTOR COMPONENT
+   ============================================ */
+.tank-selector {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.tank-selector-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4B5563;
+  white-space: nowrap;
+}
+
+.tank-selector-options {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tank-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 20px;
+  border: 2px solid #E5E7EB;
+  border-radius: 50px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.tank-option:hover {
+  border-color: #670E10;
+  color: #670E10;
+  background: #fdf2f2;
+}
+
+.tank-option-active {
+  border-color: #670E10;
+  background: #670E10;
+  color: white;
+  box-shadow: 0 2px 8px rgba(103, 14, 16, 0.3);
+}
+
+.tank-option-active:hover {
+  background: #4a0a0b;
+  color: white;
+}
+
+.tank-option-name {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.tank-option-location {
+  font-size: 0.7rem;
+  font-weight: 400;
+  opacity: 0.75;
+}
+
+.tank-selector-loading,
+.tank-selector-empty {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  padding: 4px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tank-selector {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tank-selector-options {
+    width: 100%;
+  }
+
+  .tank-option {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+}

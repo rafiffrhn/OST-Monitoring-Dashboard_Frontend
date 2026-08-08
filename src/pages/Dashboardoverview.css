@@ -1,0 +1,399 @@
+/* ============================================
+   DASHBOARD OVERVIEW — Tank Cards Grid
+   ============================================ */
+.ov-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ov-header {
+  margin-bottom: 1.5rem;
+}
+
+.ov-header h1 {
+  font-size: 2rem;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+/* Grid 2x2 */
+.ov-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* ============================================
+   CARD
+   ============================================ */
+.ov-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.ov-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.ov-card-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ov-card-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ov-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: #f0f4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  flex-shrink: 0;
+}
+
+.ov-card-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+}
+
+.ov-card-location {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 2px 0 0 0;
+}
+
+/* Body — 3 columns: info | tank visual | readings */
+.ov-card-body {
+  padding: 1.25rem;
+  display: flex;
+  gap: 1.25rem;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============================================
+   LEFT COLUMN — Info Text
+   ============================================ */
+.ov-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 100px;
+}
+
+.ov-info-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.ov-info-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.ov-info-subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.ov-info-label {
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+.ov-info-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ============================================
+   CENTER COLUMN — Tank Visual
+   ============================================ */
+.ov-visual-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ov-tank-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ov-tank-box {
+  position: relative;
+  width: 110px;
+  height: 185px;
+  background: #f1f5f9;
+  border: 2.5px solid #cbd5e1;
+  border-radius: 12px 12px 18px 18px;
+  overflow: hidden;
+}
+
+.ov-tank-liquid {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: height 0.6s ease;
+  border-radius: 0 0 11px 11px;
+}
+
+.ov-tank-wave {
+  position: absolute;
+  top: -6px;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  animation: ov-wave 2.5s ease-in-out infinite;
+}
+
+@keyframes ov-wave {
+  0%, 100% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+}
+
+.ov-tank-pct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.ov-tank-scale {
+  position: absolute;
+  top: 0;
+  right: -34px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.ov-tank-scale span {
+  font-size: 0.58rem;
+  color: #9ca3af;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Status Badges */
+.ov-status-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ov-status-low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.ov-status-medium {
+  background: #fef9c3;
+  color: #854d0e;
+}
+
+.ov-status-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.ov-status-none {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+/* ============================================
+   RIGHT COLUMN — Readings
+   ============================================ */
+.ov-readings-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  flex: 1;
+}
+
+.ov-reading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ov-reading-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.ov-reading-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.ov-card-footer {
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid #f3f4f6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ov-card-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.ov-card-actions {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.ov-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  background: white;
+  color: #374151;
+}
+
+.ov-btn:hover {
+  background: #f9fafb;
+}
+
+.ov-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ov-btn-request {
+  border-color: #670E10;
+  color: #670E10;
+}
+
+.ov-btn-request:hover {
+  background: #670E10;
+  color: white;
+}
+
+.ov-btn-configure {
+  border-color: #6b7280;
+  color: #6b7280;
+}
+
+.ov-btn-configure:hover {
+  background: #6b7280;
+  color: white;
+}
+
+.ov-btn-monitor {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.ov-btn-monitor:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .ov-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ov-card-body {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ov-info-col {
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .ov-readings-col {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .ov-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ov-card-actions {
+    width: 100%;
+  }
+
+  .ov-btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
